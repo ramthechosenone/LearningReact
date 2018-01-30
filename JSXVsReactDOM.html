@@ -1,0 +1,70 @@
+<html>
+<head>
+  <meta charset=utf-8>
+  <title> First React Component </title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <!-- React cdn files, need react.js and JSX transformer -->
+  <script src="https://fb.me/react-0.13.3.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+  <script type="text/jsx">
+  /** @jsx React.DOM */
+
+
+  <!-- React is still JavaScript, therefore some keywords are still reserved, eg. class, therefore use className -->
+  <!-- Added a submessage box to the messagebox by adding it to exisitng div -->
+  <!-- all this is jsx, which is just syntactic sugar on top of React, otherwise would have to create all of the nodes in HTML -->
+
+
+  var MessageBoxJSX = React.createClass({
+    render: function(){
+      return(
+        <div className="container">
+          <h1> Hello, World! </h1>
+          <SubMessage/>
+        </div>
+      );
+    }
+  })
+
+  <!-- adding a submessage to the original messagebox -->
+  var SubMessage = React.createClass({
+    render: function(){
+      return(
+        <small> This is a submessage </small>
+      );
+    }
+  })
+
+  <!-- using pure react and not jsx, not using HTML syntax, returns h1 node, properties argument, text to display, argument array of child nodes called as function-->
+
+  var MessageBoxDOM = React.createClass({
+    render: function(){
+      return React.DOM.h1(null, 'Hello World');
+    }
+  })
+
+  var MessageBoxDOMWithSubmessage = React.createClass({
+    render: function(){
+      return React.DOM.div(
+        {className: 'container'},
+        React.DOM.h1(null, 'Hello World'),
+        Submessage(null)
+      );
+    }
+  })
+
+  var reactCompnentJSX = React.renderComponent({
+    <MessageBox />,
+    document.getElementById('app');
+  })
+
+
+
+
+  </script>
+</body>
+</html>
