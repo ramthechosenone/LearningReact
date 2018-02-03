@@ -36,7 +36,7 @@
 
       return(
         <div className="container" style={inlineStyles}>
-          <h1>{this.state.titleMessage}</h1>
+          <h1>{this.props.titleMessage}</h1>
           <SubMessage/>
         </div>
       );
@@ -52,8 +52,10 @@
     }
   })
 
+ var message = "Yo!";
+
   var reactCompnentJSX = React.renderComponent({
-    <MessageBox />,
+    <MessageBox titleMessage={message}/>,
     document.getElementById('app');
   })
 
