@@ -34,10 +34,12 @@
         display: this.state.isVisible ? 'block' : 'none'
       };
 
+      var subMessage = 'Its not good to see you';
+
       return(
         <div className="container" style={inlineStyles}>
           <h1>Hello World}</h1>
-          <SubMessage/>
+          <SubMessage message = {subMessage}/>
         </div>
       );
     }
@@ -50,6 +52,10 @@
 
 
   var SubMessage = React.createClass({
+
+    propTypes: {
+      message: React.PropTypes.string.isRequired
+    },
 
     getDefaultProps: function(){
        return{
@@ -71,8 +77,10 @@
     document.getElementById('app');
   })
 
-
-
+<!-- Notes -->
+<!-- Now the submessage box message is composable, whenever we pass a message into the property, we can render out a new message into it -->
+<!-- Message box is owner of submessage, a React concept, sets props of other components -->
+<!-- props can be validated, like required, type>
 
   </script>
 </body>
