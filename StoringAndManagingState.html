@@ -24,7 +24,7 @@
     getInitialState: function() {
       return{
         isVisible: true,
-        titleMessage: 'This is a title'
+
       }
     },
 
@@ -36,18 +36,30 @@
 
       return(
         <div className="container" style={inlineStyles}>
-          <h1>{this.props.titleMessage}</h1>
+          <h1>Hello World}</h1>
           <SubMessage/>
         </div>
       );
     }
   })
 
+
+
   <!-- adding a submessage to the original messagebox -->
+  <!--set default values for props-->
+
+
   var SubMessage = React.createClass({
+
+    getDefaultProps: function(){
+       return{
+          message: 'Its good to see you'
+       }
+    },
+
     render: function(){
       return(
-        <small> This is a submessage </small>
+        <small> this.props.message </small>
       );
     }
   })
@@ -55,7 +67,7 @@
  var message = "Yo!";
 
   var reactCompnentJSX = React.renderComponent({
-    <MessageBox titleMessage={message}/>,
+    <MessageBox />,
     document.getElementById('app');
   })
 
