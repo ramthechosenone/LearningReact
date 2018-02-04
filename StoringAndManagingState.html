@@ -24,7 +24,11 @@
     getInitialState: function() {
       return{
         isVisible: true,
-
+        messages: [
+                    'I like the world',
+                    'Hello world',
+                    'I like big spoons'
+                  ]
       }
     },
 
@@ -34,12 +38,14 @@
         display: this.state.isVisible ? 'block' : 'none'
       };
 
-      var subMessage = 'Its not good to see you';
+      var subMessages = this.state.messages.map(function(message){
+        return <SubMessage message = {message}>;
+      });
 
       return(
         <div className="container" style={inlineStyles}>
           <h1>Hello World}</h1>
-          <SubMessage message = {subMessage}/>
+          {messages}
         </div>
       );
     }
