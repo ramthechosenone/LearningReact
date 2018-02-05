@@ -21,6 +21,11 @@
 
   var MessageBoxJSX = React.createClass({
 
+    <!-- React uses synthetic events -->
+    handleAdd: function(e){
+      console.log(e);
+    }
+
     getInitialState: function() {
       return{
         isVisible: true,
@@ -45,6 +50,7 @@
       return(
         <div className="container" style={inlineStyles}>
           <h1>Hello World}</h1>
+          <button class="btn btn-primary" onClick={this.handleAdd}> Add</button>
           {messages}
         </div>
       );
@@ -84,9 +90,9 @@
   })
 
 <!-- Notes -->
-<!-- Now the submessage box message is composable, whenever we pass a message into the property, we can render out a new message into it -->
-<!-- Message box is owner of submessage, a React concept, sets props of other components -->
-<!-- props can be validated, like required, type>
+<!-- WHen we create callback for handlers, React combines components as the this keyword-->
+<!-- Events delegation done out of the box -->
+<!-- >
 
   </script>
 </body>
