@@ -23,7 +23,11 @@
 
     <!-- React uses synthetic events -->
     handleAdd: function(e){
-      console.log(e);
+      var newMessage = this.refs.newMessage.getDOMNode().value;
+      var newMessages = this.state.messages.concat([newMessage]);
+      this.setState({
+        messages: newMessages
+      });
     }
 
     getInitialState: function() {
@@ -50,6 +54,7 @@
       return(
         <div className="container" style={inlineStyles}>
           <h1>Hello World}</h1>
+          <input ref="newMesssage" type="text">
           <button class="btn btn-primary" onClick={this.handleAdd}> Add</button>
           {messages}
         </div>
